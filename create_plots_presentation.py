@@ -184,7 +184,7 @@ gdf_loadings = create_geodf_from_df(df_loadings_places)
 fig, axes = plt.subplots(1, 3)
 for (i, ax) in enumerate(axes.flatten()):
     scatter_points_germany(gdf_loadings, f'l_{i + 1}', ax=ax, cmap=cycler_sym)
-    ax.set(title=f'Loadings $(SV)_{i + 2}$')
+    ax.set(title=r'Loadings $(SV^{\top})_{' + f'{i + 2}' + r',:}$')
 fig.tight_layout()
 fig.savefig(join(exportfolder, f'loadings_places.png'))
 
@@ -192,20 +192,20 @@ fig.savefig(join(exportfolder, f'loadings_places.png'))
 fig, axes = plt.subplots(1, 2)
 for (i, ax) in enumerate(axes.flatten()):
     scatter_points_germany(gdf_loadings, f'l_{i + 1}', ax=ax, cmap=cycler_sym)
-    ax.set_title(f'Loadings $(SV)_{i + 2}$')
+    ax.set_title(r'Loadings $(SV^{\top})_{' + f'{i + 2}' + r',:}$')
     ax.axis('off')
 fig.tight_layout()
 fig.savefig(join(exportfolder, f'loadings_places_transparent.png'), transparent=True)
 plt.switch_backend('pgf')
 
-# %% Plot loadings 5-13 plots spatially
+ # %% Plot loadings 5-13 plots spatially
 plt.switch_backend('pdf')
 df_loadings_places = pd.read_pickle(join(importfolder, 'df_loadings_place_all.pickle'))
 gdf_loadings = create_geodf_from_df(df_loadings_places)
 fig, axes = plt.subplots(2, 4)
 for (i, ax) in enumerate(axes.flatten()):
     scatter_points_germany(gdf_loadings, f'l_{i + 3}', ax=ax, cmap=cycler_sym)
-    ax.set(title=f'Loadings $(SV)_{i + 4}$')
+    ax.set(title=r'Loadings $(SV^{\top})_{' + f'{i + 2}' + r',:}$')
 fig.tight_layout()
 fig.savefig(join(exportfolder, f'loadings_places_later.png'))
 plt.switch_backend('pgf')
